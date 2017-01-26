@@ -1,0 +1,2 @@
+layout: about_partner
+---
