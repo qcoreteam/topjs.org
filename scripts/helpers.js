@@ -24,13 +24,13 @@ hexo.extend.helper.register('header_menu', function (id)
 
 hexo.extend.helper.register("load_css_for_current_layout", function ()
 {
-    if(this.is_home()){
+    let layout = this.page.layout;
+    if (_.startsWith(layout, "about")) {
+        return this.css("css/about.css");
+    } else if (layout == "post") {
+        return this.css("css/news-content.css");
+    } else if("index" == layout) {
         return this.css("css/index.css");
-    } else {
-        let layout = this.page.layout;
-        if (_.startsWith(layout, "about")) {
-            return this.css("css/about.css");
-        }
     }
 });
 
