@@ -15,9 +15,14 @@ hexo.extend.helper.register('header_menu', function (id)
     let self = this;
     let lang = this.page.lang;
     // TODO 暂时不处理语言
+    let curVersion = this.config.cur_version;
     _.each(menu, function (path, title)
     {
-        result += '<li class="nav-item"><a class="nav-link" href="' + self.url_for(path) + '" >'+title+'</a></li>';
+        let url = self.url_for(path);
+        if (path == "/docs/"){
+            url += curVersion+"/";
+        }
+        result += '<li class="nav-item"><a class="nav-link" href="' + url + '" >'+title+'</a></li>';
     });
     return result;
 });
@@ -35,6 +40,8 @@ hexo.extend.helper.register("load_css_for_current_layout", function ()
         return this.css("css/blog.css");
     } else if ("devel" == this.page.category) {
         return this.css("css/news.css");
+    } else if ("doc" == layout) {
+        return this.css(["css/docs.css", "css/BootSideMenu.css"]);
     }
 });
 
@@ -81,9 +88,23 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
         "js/bootstrap.min.js"
     ];
     let layout = this.page.layout;
-    if (this.is_home() || "index" == layout) {
+    if (this.is_home() ||
+        "index" == layout ||
+        "blog" == this.page.category ||
+        "devel" == this.page.category) {
         scripts.push("js/index.js");
+    } else if ("doc" == layout) {
+        scripts = scripts.concat(
+            ["js/BootSideMenu.js", 
+            "js/maodian.js",
+            "js/docs.js",
+            "js/common.js"]
+        );
     }
     return this.js(scripts)
+});
 
+hexo.extend.helper.register("generate_docs_sidebar", function ()
+{
+    
 });

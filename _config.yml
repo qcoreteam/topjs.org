@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: the blog of zzu_softboy
-subtitle: TopJs is a full feature web framework for nodejs.
+title: offical site of TopJs Framework
+subtitle: TopJs is a full-stack web framework for nodejs.
 description: full feature web framework for nodejs, mvc, web
 author: zzu_softboy
 language: 
@@ -16,6 +16,9 @@ url: http://www.topjs.org
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+
+# 自定义变量
+cur_version: v0.0.1
 
 
 # Directory
