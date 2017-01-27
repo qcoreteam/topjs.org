@@ -8,3 +8,6 @@
     -
       name: 安装
       key: installation
+    - 
+      name: 项目配置
+      key: configuration
