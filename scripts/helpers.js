@@ -29,8 +29,12 @@ hexo.extend.helper.register("load_css_for_current_layout", function ()
         return this.css("css/about.css");
     } else if (layout == "post") {
         return this.css("css/news-content.css");
-    } else if("index" == layout) {
+    } else if (this.is_home() || "index" == layout) {
         return this.css("css/index.css");
+    } else if ("blog" == this.page.category) {
+        return this.css("css/blog.css");
+    } else if ("devel" == this.page.category) {
+        return this.css("css/news.css");
     }
 });
 
@@ -55,4 +59,31 @@ hexo.extend.helper.register("about_categories", function (index)
         result += '<li><a href="' + this.url_for("about/"+key+'.html') + '" class="'+curCls+'">'+name+'</a></li>';
     }
     return result;
+});
+
+hexo.extend.helper.register('excerpt', function (post, length) {
+    length = length || 200;
+    let excerpt;
+    if (post.excerpt) {
+        excerpt = post.excerpt.replace(/\<[^\>]+\>/g, '');
+    } else {
+        excerpt = post.content.replace(/\<[^\>]+\>/g, '').substring(0, length);
+    }
+    return excerpt;
+});
+
+hexo.extend.helper.register("load_scripts_for_layout", function ()
+{
+    let scripts = [
+        "js/jquery.min.js",
+        "js/tether.min.js",
+        "js/highlight.min.js",
+        "js/bootstrap.min.js"
+    ];
+    let layout = this.page.layout;
+    if (this.is_home() || "index" == layout) {
+        scripts.push("js/index.js");
+    }
+    return this.js(scripts)
+
 });
