@@ -13,7 +13,6 @@ hexo.extend.helper.register('header_menu', function (id)
     let menu = this.site.data.menu;
     let result = '';
     let self = this;
-    let lang = this.page.lang;
     // TODO 暂时不处理语言
     let curVersion = this.config.cur_version;
     _.each(menu, function (path, title)
@@ -104,7 +103,88 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
     return this.js(scripts)
 });
 
-hexo.extend.helper.register("generate_docs_sidebar", function ()
+hexo.extend.helper.register("generate_docs_sidebar_for_pc", function ()
+{
+    //根据版本号获取目录
+    let curVersion = this.config.cur_version;
+    let key = ("docs/"+curVersion+"/table").replace(/\./g, '');
+    let table = this.site.data[key];
+    let html = "";
+    let articles;
+    let chapter;
+    let article;
+    let curKey;
+    let currentPath = this.page.path;
+    let activeCls;
+    let url;
+    for (let i = 0; i < table.length; i++) {
+        chapter = table[i];
+        html += "<h4>"+chapter.name+"</h4>\n";
+        articles = chapter.children || [];
+        for (let j = 0; j < articles.length; j++) {
+            article = articles[j];
+            curKey = "docs/"+curVersion+'/'+chapter.key+'/'+article.key;
+            if (_.startsWith(currentPath, curKey)) {
+                activeCls = 'class="current"';
+            } else {
+                activeCls = "";
+            }
+            url = "/" + curKey+".html";
+            html += '<a href="'+url+'" '+activeCls+'>'+article.name+"</a>\n";
+        }
+    }
+    return html;
+});
+
+hexo.extend.helper.register("generate_docs_sidebar_site_menu_for_mobile", function ()
+{
+    //生成网站导航
+    let html = '';
+    let menu = this.site.data.menu;
+    let self = this;
+    let curVersion = this.config.cur_version;
+    _.each(menu, function (path, title)
+    {
+        let url = self.url_for(path);
+        if (path == "/docs/"){
+            url += curVersion+"/";
+        }
+        html += '<a class="category" href="' + url + '" >'+title+'</a>';
+    });
+    return html;
+});
+
+hexo.extend.helper.register("generate_docs_sidebar_doc_list_for_mobile", function ()
 {
     
+    //根据版本号获取目录
+    let curVersion = this.config.cur_version;
+    let key = ("docs/"+curVersion+"/table").replace(/\./g, '');
+    let table = this.site.data[key];
+    let html = "";
+    let articles;
+    let chapter;
+    let article;
+    let curKey;
+    let currentPath = this.page.path;
+    let activeCls;
+    let url;
+    for (let i = 0; i < table.length; i++) {
+        chapter = table[i];
+        html += "<h6>"+chapter.name+"</h6>\n";
+        articles = chapter.children || [];
+        for (let j = 0; j < articles.length; j++) {
+            article = articles[j];
+            curKey = "docs/"+curVersion+'/'+chapter.key+'/'+article.key;
+            if (_.startsWith(currentPath, curKey)) {
+                activeCls = 'class="current"';
+            } else {
+                activeCls = "";
+            }
+            url = "/" + curKey+".html";
+            html += '<a href="'+url+'" '+activeCls+'>'+article.name+"</a>\n";
+        }
+    }
+    return html;
 });
+

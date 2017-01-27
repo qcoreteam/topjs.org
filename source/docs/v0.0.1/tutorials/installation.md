@@ -1,4 +1,4 @@
 ---
 layout: doc
 ---
-introduction
+installation
