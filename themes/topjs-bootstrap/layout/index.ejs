@@ -1,0 +1,156 @@
+<div class="page-first main-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-xs-12 page-first-intro">
+                <h2>A full-stack web framework for nodejs</h2>
+                <p>也许你喜欢面向对象的开发，也很也喜欢Javascript，或许之前是个前端工程师正琢磨着怎么才能成为牛逼的全栈工程师，
+                    或许有人说PHP是世界上最好的语言，而我认为Javascript才是世界上最好的语言，怎么您不信？那么来试试
+                    TopJs Framework吧，一个将PHP开发体验带进Javascript世界中的框架。Just for fun。</p>
+                <div class="detail-button">
+                    npm install qtop.js
+                    <a href="https://www.github.com/qcoreteam/topjs" target="_blank"><img
+                                src="../images/arrow-right.svg"></a>
+                </div>
+            </div>
+            <div class="col-lg-6 hidden-md-down page-first-bg">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-second">
+    <div class="container">
+        <div class="feature-table">
+            <div class="feature-cell callouts">
+
+                <div class="callouts-title">
+                    <h2>支持ES6/7特性
+                        <img src="../images/computer.svg">
+                    </h2>
+                </div>
+                <div class="callouts-content">
+                    <p>
+                        整个框架采用最新的Javascript标准进行编写，底层借鉴Sencha ExtJs内核设计，采用完全面向对象的设计，精心设计所有的组件,
+                        让模块之间的耦合降到最低。让您无忧的实现复杂逻辑的系统，在兼顾开发效率的同时兼顾项目的可维护性。
+                    </p>
+                </div>
+            </div>
+            <div class="feature-cell callouts callouts-color2">
+                <div class="callouts-title">
+                    <h2>高性能
+                        <img src="../images/settings.svg">
+                    </h2>
+                </div>
+                <div class="callouts-content">
+                    <p>
+                        在设计系统的时候采用大架构异步，小过程同步的编程方式，尽最大努力利用nodejs异步特性来提高整个系统的吞吐量，同时最大程度上避免异步编程中令人头痛的多层回调函数问题。框架初始化流程采用事件的方式，清晰并且优雅。
+                    </p>
+                </div>
+            </div>
+            <div class="feature-cell callouts">
+                <div class="callouts-title">
+                    <h2>MVC支持
+                        <img src="../images/teamwork.svg">
+                    </h2>
+                </div>
+                <div class="callouts-content">
+                    <p>
+                        TopJs使用成熟的ZF3.0的Mvc编程模型，采用事件驱动，优雅的将业务层，展现层和数据层分离，系统通过一个强大可配置的路由系统，清晰可扩展的派发流程和一个支持多适配的服务端Js模板处理引擎。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-table">
+
+            <div class="feature-cell callouts">
+                <div class="callouts-title">
+                    <h2>安全
+                        <img src="../images/computer.svg">
+                    </h2>
+                </div>
+                <div class="callouts-content">
+                    <p>
+                        我们实现框架本身的时候严谨的处理一些常见的攻击类型，内置支持多种加密机制，提供防注入和CSRF攻击的模块，让您轻松实现安全性比较高的系统，我们保持跟国内顶尖的安全团队合作，为您的系统保驾护航。
+                    </p>
+                </div>
+            </div>
+            <div class="feature-cell callouts callouts-color2">
+                <div class="callouts-title">
+                    <h2>灵活的数据模型支持
+                        <img src="../images/settings.svg">
+                    </h2>
+                </div>
+                <div class="callouts-content">
+                    <p>
+                        框架支持传统的关系型数据库和NoSql数据库，并且在这之上提供ActiveRecord系统(Zend DB)和一个全功能型的ORM系统(Doctrine
+                        ORM)，让您可以根据实际情况灵活选择，从容的应对不同规模的应用程序。
+                    </p>
+                </div>
+            </div>
+            <div class="feature-cell callouts callouts-color2">
+                <div class="callouts-title">
+                    <h2>完备的文档
+                        <img src="../images/teamwork.svg">
+                    </h2>
+                </div>
+                <div class="callouts-content">
+                    <p>
+                        在整个项目启动之时，我们就将文档支持放在很重要的位置，甚至超过code本身，这样的话大家在使用
+                        TopJs的时候就更加轻松。我们会提供一个高质量编程的手册和一个便于查阅的API文档，让您在使用TopJs
+                        时候胸有成竹，得心应手。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="page-third">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 news-list">
+                    <h2 class="category-title"><img src="../images/book.svg"> 推荐阅读</h2>
+                    <span class="no-recommend">暂无推荐文章</span>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 news-list">
+                    <h2 class="category-title"><img src="../images/clock.svg">开发日志</h2>
+                    <% let develArticles = [];
+                    page.posts.each(function (post, i) {
+                        let categories = post.categories;
+                        let findResults = categories.find({name: "devel"});
+                        if (findResults.length > 0) {
+                            develArticles.unshift(post);
+                        }
+                    });
+                    let firstPost;
+                    if (develArticles.length > 0) {
+                        firstPost = develArticles.pop();
+                    }
+                    %>
+                    <div class="img-news hidden-md-down hidden-sm-down">
+                        <% if (firstPost) { %>
+                        <div>
+                            <!--<img src="../images/news-test.png">-->
+                        </div>
+                        <div class="title">
+                            <h2><a href="<%- url_for(firstPost.path) %>"><%= firstPost.title %></a></h2>
+                            <p><%- excerpt(firstPost) %></p>
+                            <a href="<%- url_for(firstPost.path) %>" class="more">阅读全文</a>
+                        </div>
+                        <% } %>
+                    </div>
+                    <ul class="list">
+                        <% if (firstPost) { %>
+                        <li class="hidden-md-up hidden-sm-up clearfix"><a
+                                    href="<%- url_for(firstPost.path) %>"><%= firstPost.title %></a>
+                        </li>
+                        <% } %>
+                        <% develArticles.forEach(function(post) { %>
+                        <li class="clearfix"><a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
