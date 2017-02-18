@@ -72,6 +72,7 @@ theme: topjs-bootstrap
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: github-topjs-site:/qcoreteam-site-topjs/qcoreteam-site-topjs.github.io
+  repo: topjs-site:/qcoreteam-site-topjs/qcoreteam-site-topjs.github.io
+  branch: master
 
 github: qcoreteam/topjs
