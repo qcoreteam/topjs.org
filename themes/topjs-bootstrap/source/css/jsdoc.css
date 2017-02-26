@@ -132,9 +132,16 @@ tt, code, kbd, samp {
 }
 
 #main {
-  float: right;
+  float: left;
   min-width: 360px;
   width: calc(100% - 300px);
+  margin-left: 300px;
+}
+
+@media (max-width: 768px) {
+  #main {
+    margin-left: 0;
+  }
 }
 
 header {
@@ -159,6 +166,11 @@ section {
 }
 
 .api-container nav {
+  position: fixed;
+  top:0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 50px;
   float: left;
   display: block;
   width: 300px;
@@ -595,12 +607,12 @@ span.param-type, .params td .param-type, .param-type dd {
   z-index: 1;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 680px) {
+@media (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
-  nav {
+  .api-container nav {
     background: #FFF;
     width: 250px;
     height: 100%;
@@ -608,7 +620,7 @@ span.param-type, .params td .param-type, .param-type dd {
     top: 0;
     right: 0;
     bottom: 0;
-    left: -250px;
+    left: -300px;
     z-index: 3;
     padding: 0 10px;
     transition: left 0.2s;

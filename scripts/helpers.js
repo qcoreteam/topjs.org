@@ -41,6 +41,8 @@ hexo.extend.helper.register("load_css_for_current_layout", function ()
         return this.css("css/news.css");
     } else if ("doc" == layout) {
         return this.css(["css/docs.css", "css/BootSideMenu.css"]);
+    } else {
+        return this.css(["css/jsdoc.css", "css/extra.css"]);
     }
 });
 
@@ -83,8 +85,8 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
     let scripts = [
         "js/jquery.min.js",
         "js/tether.min.js",
-        "js/highlight.min.js",
-        "js/bootstrap.min.js"
+        "js/bootstrap.min.js",
+        "js/common.js"
     ];
     let layout = this.page.layout;
     if (this.is_home() ||
@@ -96,9 +98,17 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
         scripts = scripts.concat(
             ["js/BootSideMenu.js", 
             "js/maodian.js",
-            "js/docs.js",
-            "js/common.js"]
+            "js/docs.js"
+            ]
         );
+    } else if ('api' == this.page.category) {
+        scripts = scripts.concat([
+            "js/prettify/prettify.js",
+            "js/prettify/lang-css.js",
+            "js/linenumber.js",
+            "js/maodian.js",
+            "js/extra.js"
+        ]);
     }
     return this.js(scripts)
 });

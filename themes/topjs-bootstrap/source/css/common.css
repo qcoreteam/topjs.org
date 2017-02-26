@@ -1,4 +1,7 @@
 /*base*/
+body {
+    font:14px/1.5 "Microsoft Yahei","微软雅黑",Tahoma,Arial,Helvetica,STHeiti;
+}
 .main-color {
     color: #41485e;
 }
@@ -18,9 +21,6 @@
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
     color: #42c950;
 }
-.navbar-nav a.nav-link.current {
-    color: #42c950;
-}
 
 .page-link {
     padding: .5rem 0.95rem;
@@ -30,14 +30,6 @@
     color: black;
     margin: 5px;
     border: none;
-}
-
-a.page-link.current{
-    color: black;
-    filter: alpha(opacity=50);
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
-    opacity: 0.5;
 }
 
 .page-link:focus, .page-link:hover {
@@ -62,7 +54,7 @@ a.page-link.current{
     src: url("../font/glyphicons-regular.woff2");
 }
 
-.glyphicon {
+.glyphicon:before {
     position: relative;
     top: 1px;
     display: inline-block;
@@ -70,11 +62,14 @@ a.page-link.current{
     -webkit-font-smoothing: antialiased;
     font-style: normal;
     font-weight: normal;
-    line-height: 1;
     -moz-osx-font-smoothing: grayscale;
 }
 
-a,a:active,a:visited,a:focus,a:hover {
+a {
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+a:visited,a:focus,a:focus{
     text-decoration: none;
     outline: none;
 }
@@ -83,10 +78,10 @@ a:hover {
     text-decoration: none;
     cursor: pointer;
     color: #53cc5f;
-    filter: alpha(opacity=50);
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
-    opacity: 0.5;
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
 }
 
 .list-group a:hover {
@@ -108,7 +103,18 @@ a:hover {
         max-width: 100%;
     }
 }
+.glyphicon-chevron-right:before {
+    content: "\E224";
+    font-size: 1rem;
+}
 
+.glyphicon-chevron-left:before {
+    content: "\E225";
+}
+
+.glyphicon-chevron-down:before {
+    content: "\E602";
+}
 /*header*/
 .header .logo {
     height: 38px;
@@ -126,10 +132,6 @@ a:hover {
     -webkit-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-}
-
-a {
-    transition-duration: 0.2s;
 }
 
 @media (min-width: 768px) {

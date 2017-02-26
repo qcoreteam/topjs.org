@@ -32,7 +32,6 @@
     padding-top: 45px;
     left:-1000px;
     overflow: scroll;
-    width: 100%;
 }
 .sidebar-left .list-container
 {
@@ -48,6 +47,9 @@
     color:#999;
     padding-left: 20px;
     line-height: 30px;
+}
+.sidebar-left .category:hover {
+    color: #53cc5f;
 }
 
 .sm-header {
