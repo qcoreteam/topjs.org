@@ -20,7 +20,6 @@ function init() {
 }
 
 function generateClassMethonPara() {
-    console.log($('section h4.name'));
     $list = '<ul class="members" style="display: block;">';
     $.each($('section h4.name'), function (i,n) {
         text = $(n).text().split(' ')[1].split('(')[0];
@@ -36,7 +35,6 @@ $('#slideClose').click(function (e) {
     e.stopPropagation();
     var width = $('.api-container nav').width();
     var left = $('.api-container nav').css('left');
-    console.log(left);
     if (parseInt(left) === 0) {
         $('.api-container nav').animate({
             "left": -(width + 2),

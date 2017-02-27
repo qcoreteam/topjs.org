@@ -6,7 +6,6 @@ $('#slide').css({
     "left": -(width + 2)
 });
 
-initCategory();
 $('#slideClose').click(function (e) {
     e.stopPropagation();
     var width = $('#slide').width();
@@ -38,11 +37,6 @@ $('#slide').click(function (e) {
 
 maoDian(10);
 
-function initCategory() {
-    var pathname = window.location.pathname;
-    var page = pathname.split('/').pop();
-    console.log('current category selected');
-}
 $(document).click(function () {
     var width = $('#slide').width();
     $('#slide').animate({
