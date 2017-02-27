@@ -227,10 +227,28 @@ a:hover {
     line-height: 30px;
     vertical-align:middle;
 }
+.page-div span {
+    display: block;
+}
 .page-div a{
     color: #42c950;
 }
+/*评论*/
+section.comment {
+    background: white;
+}
 
-.page-div .next {
-    float: right;
+section.comment .ds-thread {
+    width: 90%;
+    margin: auto;
+}
+
+#ds-thread #ds-reset .ds-meta {
+    border-bottom: none !important;
+}
+#ds-thread #ds-reset .ds-comments {
+    border-bottom: none !important;
+}
+#ds-thread #ds-reset li.ds-post {
+    border-top: none !important;
 }

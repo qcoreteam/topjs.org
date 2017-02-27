@@ -39,10 +39,12 @@
             <div class="article">
                <%- page.content %>
             </div>
-            <div class="page-div">
-                <span class="pre"><a href="#">< 上一篇</a></span>
-                <span class="next"><a href="#">下一篇 ></a></span>
-            </div>
+
+            <% if (theme.duoshuo.enable && page.comments){ %>
+            <section class="comment">
+                <div class="ds-thread" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+            </section>
+            <% } %>
         </div>
     </div>
 </div>
