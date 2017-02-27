@@ -89,12 +89,7 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
         "js/common.js"
     ];
     let layout = this.page.layout;
-    if (this.is_home() ||
-        "index" == layout ||
-        "blog" == this.page.category ||
-        "devel" == this.page.category) {
-        scripts.push("js/index.js");
-    } else if ("doc" == layout) {
+    if ("doc" == layout) {
         scripts = scripts.concat(
             ["js/BootSideMenu.js", 
             "js/maodian.js",
