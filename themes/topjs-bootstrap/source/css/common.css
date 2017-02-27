@@ -211,6 +211,7 @@ a:hover {
     text-align: center;
     font-size: 30px;
     color: #42c950;
+    z-index: 9999;
 }
 
 #toTop:hover {
