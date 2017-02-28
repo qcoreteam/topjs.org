@@ -42,5 +42,8 @@ $('header').click(function (e) {
     e.stopPropagation();
 })
 $(document).click(function (e) {
+    // $('.collapse').collapse('hide');
+});
+$(document).bind('touchend', function (e) {
     $('.collapse').collapse('hide');
 });

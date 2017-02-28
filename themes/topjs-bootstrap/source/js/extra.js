@@ -51,6 +51,17 @@ $('#slideClose').click(function (e) {
 $('nav').click(function (e) {
     e.stopPropagation();
 });
+$(document).bind('touchend', function (e) {
+    var windowWidth = $(window).width();
+    if (windowWidth > 768) {
+        return;
+    }
+    var width = $('.api-container nav').width();
+    $('.api-container nav').animate({
+        "left": -(width + 2),
+        "opacity": 0
+    });
+});
 $(document).click(function () {
     var windowWidth = $(window).width();
     if (windowWidth > 768) {

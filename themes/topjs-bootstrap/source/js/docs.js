@@ -36,7 +36,13 @@ $('#slide').click(function (e) {
 });
 
 maoDian(10);
-
+$(document).bind('touchend', function (e) {
+    var width = $('#slide').width();
+    $('#slide').animate({
+        "left": -(width + 2),
+        "opacity": 0
+    });
+});
 $(document).click(function () {
     var width = $('#slide').width();
     $('#slide').animate({
