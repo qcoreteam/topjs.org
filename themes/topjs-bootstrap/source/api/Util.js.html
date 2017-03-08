@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Util.js - Documentation</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/prettify.css">
+    <link type="text/css" rel="stylesheet" href="../css/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="../css/extra.css">
+    <link type="text/css" rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<header class="navbar navbar-fixed-top fixed-header fixed-header-active header hidden-sm-down">
+    <nav class="navbar navbar-light">
+
+        <div class="">
+            <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <a href="/"><img class="navbar-brand logo" src="../images/logo-green.png"></a>
+
+            <div class="collapse navbar-toggleable-md float-lg-right" id="navbarResponsive">
+                <ul class="nav navbar-nav float-lg-right">
+                    <li class="nav-item"><a class="nav-link" href="/" >首页</a></li><li class="nav-item"><a class="nav-link" href="/docs/v0.0.1/" >手册</a></li><li class="nav-item"><a class="nav-link" href="/api/" >API文档</a></li><li class="nav-item"><a class="nav-link" href="/categories/blog/" >博客</a></li><li class="nav-item"><a class="nav-link" href="/categories/devel/" >开发日志</a></li><li class="nav-item"><a class="nav-link" href="/about/" >关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hidden-md-up sm-header">
+    <div class="toggler" id="slideClose"></div>
+    <img src="../images/logo-green.png">
+</div>
+<div class="api-container clearfix">
+    <nav>
+        <div class="category hidden-md-up">
+            <a href="/">首页</a>
+            <a href="/docs/v0.0.1/">手册</a>
+            <a href="/api/">API文档</a>
+            <a href="/categories/blog">博客</a>
+            <a href="/categories/devel">开发日志</a>
+            <a href="/about">关于我们</a>
+        </div>
+        <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul class = "entry-type-namespaces"><li><a href="TopJs.html">TopJs</a><ul class='members'><li data-type='member' class='entry-type-class'><a href="TopJs.Array.html">Array</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Assert.html">Assert</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Base.html">Base</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Class.html">Class</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.ClassManager.html">ClassManager</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Config.html">Config</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Date.html">Date</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Error.html">Error</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Function.html">Function</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Loader.html">Loader</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Number.html">Number</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Object.html">Object</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.String.html">String</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Version.html">Version</a></li></ul></li><li><a href="TopJs.kernel.html">TopJs.kernel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callParent">callParent</a></li><li><a href="global.html#callSuper">callSuper</a></li><li><a href="global.html#clearPropertiesOnDestroy">clearPropertiesOnDestroy</a></li><li><a href="global.html#destroyed">destroyed</a></li><li><a href="global.html#isConfiguring">isConfiguring</a></li><li><a href="global.html#isFirstInstance">isFirstInstance</a></li><li><a href="global.html#isInstance">isInstance</a></li><li><a href="global.html#statics">statics</a></li></ul>
+    </nav>
+    <div id="main">
+        
+        <h1 class="page-title">Util.js</h1>
+        
+
+        
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * TopJs Framework (http://www.topjs.org/)
+ *
+ * @link      http://github.com/qcoreteam/topjs for the canonical source repository
+ * @copyright Copyright (c) 2016-2017 QCoreTeam (http://www.qcoreteam.org)
+ * @license   http://www.topjs.org/license/new-bsd New BSD License
+ */
+
+/**
+ * 定义一些挂载在TopJs名称空间上的帮助函数
+ *
+ * @private
+ */
+
+let propertyNameSplitRe = /[,;\s]+/;
+let nonWhitespaceRe = /\S/;
+let toString = Object.prototype.toString;
+let typeofTypes = {
+    number: 1,
+    string: 1,
+    'boolean': 1,
+    'undefined': 1
+};
+let toStringTypes = {
+    '[object Array]': 'array',
+    '[object Date]': 'date',
+    '[object Boolean]': 'boolean',
+    '[object Number]': 'number',
+    '[object RegExp]': 'regexp'
+};
+TopJs.apply(TopJs, /** @lends TopJs */ {
+    /**
+     * 将指定的名称的属性从`source`对象复制到`dest`
+     *
+     * ```javascript
+     * let foo = { a: 1, b: 2, c: 3 };
+     * let bar = TopJs.copyTo({}, foo, 'a,c');
+     * // bar = {a: 1, c: 3}
+     * ```
+     * @param {Object} dest 复制的目标对象
+     * @param {Object} source 等待复制的源对象
+     * @param {String/String[]} names 需要复制的字段名称，数组或者逗号分隔
+     * @param {Boolean} [usePrototypeKeys=false] `true`在圆形链上寻找属性值
+     * @return {Object} `dest`对象
+     */
+    copy(dest, source, names, usePrototypeKeys)
+    {
+        if (typeof names === 'string') {
+            names = names.split(propertyNameSplitRe);
+        }
+        for (let name, i = 0, n = names ? names.length : 0; i &lt; n; i++) {
+            name = names[i];
+            if (source.hasOwnProperty(name) || (usePrototypeKeys &amp;&amp; name in source)) {
+                dest[name] = source[name];
+            }
+        }
+        return dest;
+    },
+
+    /**
+     * 将指定的名称的属性从`source`对象复制到`dest`,如果相应的属性在
+     * `dest`存在的话就不复制
+     *
+     * ```javascript
+     * let foo = { a: 1, b: 2, c: 3 };
+     * let bar = TopJs.copyTo({a: 43}, foo, 'a,c');
+     * // bar = {a: 43, c: 3}
+     * ```
+     * @param {Object} dest 复制的目标对象
+     * @param {Object} source 等待复制的源对象
+     * @param {String/String[]} names 需要复制的字段名称，数组或者逗号分隔
+     * @return {Object} `dest`对象
+     */
+    copyIf(dest, source, names)
+    {
+        if (typeof names === 'string') {
+            names = names.split(propertyNameSplitRe);
+        }
+        for (let name, i = 0, n = names ? names.length : 0; i &lt; n; i++) {
+            name = names[i];
+            if (!(name in dest) &amp;&amp; (name in source)) {
+                dest[name] = source[name];
+            }
+        }
+        return dest;
+    },
+
+    /**
+     * 获取传入参数的类型的字符串表示
+     *
+     * - `undefined`: 当传入值是`undefined`
+     * - `null`: 当传入值是 `null`
+     * - `string`: 当传入值是字符串类型
+     * - `number`: 当传入值是`number`类型
+     * - `boolean`: 当传入的值得布尔类型
+     * - `date`: 当传入的值是`Date` 类型
+     * - `function`: If the given value is a function reference
+     * - `object`: If the given value is an object
+     * - `array`: If the given value is an array
+     * - `regexp`: If the given value is a regular expression
+     * - `whitespace`: If the given value is a DOM text node and contains only whitespace
+     *
+     * @method
+     * @param {Object} value 传入的对象
+     * @return {String}
+     */
+    typeOf: (function ()
+    {
+        let toString = Object.prototype.toString;
+        let typeofTypes = {
+            number: 1,
+            string: 1,
+            "boolean": 1,
+            "undefined": 1
+        };
+        let toStringTypes = {
+            "[object Array]": "array",
+            "[object Date]": "date",
+            "[object Boolean]": "boolean",
+            "[object Number]": "number",
+            "[object RegExp]": "regexp"
+        };
+        return function (value)
+        {
+            if (value === null) {
+                return "null";
+            }
+            let type = typeof value;
+            let ret;
+            let typeToString;
+            if (typeofTypes[type]) {
+                return type;
+            }
+            ret = toStringTypes[typeToString = toString.call(value)];
+            if (ret) {
+                return ret;
+            }
+            if (type === "function") {
+                return "function";
+            }
+            if ("object" === type) {
+                return "object";
+            }
+            //&lt;debug>
+            TopJs.raise({
+                sourceClass: "TopJs",
+                sourceMethod: "typeOf",
+                msg: "Failed to determine the type of \"" + value + "\"."
+            });
+            //&lt;/debug>
+            return typeToString;
+        }
+    })(),
+
+    /**
+     * 迭代传入的对象，如果`object`是数组，则调用{@link TopJs.Array.each}，如果是对象
+     * 则调用{@link TopJs.Object.each}
+     *
+     * @param {Object|Array} object 需要迭代的对象或者数组
+     * @param {Function} func 迭代调用的函数，详情请参考{@link TopJs.Array.each}
+     * 和{@link TopJs.Object.each}
+     * @param {Object} scope 迭代器调用时候的作用域参数
+     */
+    iterate(object, func, scope)
+    {
+        if (TopJs.isEmpty(object)) {
+            return;
+        }
+        if (scope === undefined) {
+            scope = object;
+        }
+        if (TopJs.isIterable(object)) {
+            TopJs.Array.each.call(TopJs.Array, object, func, scope);
+        } else {
+            TopJs.Object.each.call(TopJs.Object, object, func, scope);
+        }
+    },
+
+    /**
+     * 向控制台输出一条信息
+     *
+     * @method
+     * @param {Object} [options] 需要输出的信息的选项
+     * @param {String} options.msg 输出的字符串信息(必要字段)
+     * @param {String} [options.level=log] 错误级别 `error`, `warn`, `info` or `log` (默认是 `log`).
+     * @param {Boolean} [options.dump=false] 是否将整个对象`dump`到错误信息里面
+     * @param {Boolean} [options.stack=false] 是否输出函数调用栈
+     * @param {Boolean} [options.indent=true] 是否对错误信息进行缩进
+     * @param {Boolean} [options.outdent=true] 是否对当前的语句和后面的语句减少一个缩进
+     * @param {...String} [message] 需要输出的字符串数据
+     */
+    log: //&lt;debug>
+    (function ()
+    {
+
+        function log(message)
+        {
+            let options;
+            let dump;
+            let level = 'log';
+            let indent = log.indent || 0;
+            let prefix;
+            let stack;
+            let fn;
+            log.indent = indent;
+            if (typeof message !== 'string') {
+                options = message;
+                message = options.msg || '';
+                level = options.level || level;
+                dump = options.dump;
+                stack = options.stack;
+                prefix = options.prefix;
+                fn = options.fn;
+                if (options.indent) {
+                    ++log.indent;
+                } else if (options.outdent) {
+                    log.indent = indent = Math.max(indent - 1, 0);
+                }
+            }
+
+            if (arguments.length > 1) {
+                message += Array.prototype.slice.call(arguments, 1).join('');
+            }
+            if (prefix) {
+                message = prefix + ' - ' + message;
+            }
+            message = indent ? TopJs.String.repeat(' ', log.indentSize * indent) + message : message;
+            if (level !== 'log') {
+                message = '[' + level.charAt(0).toUpperCase() + '] ' + message;
+            }
+
+            if (fn) {
+                message += '\nCaller: ' + fn.toString();
+            }
+            if (console[level]) {
+                console[level](message);
+            } else {
+                console.log(message);
+            }
+
+            if (dump) {
+                console.dir(dump);
+            }
+
+            if (stack &amp;&amp; console.trace) {
+                console.trace();
+            }
+            ++log.count;
+            ++log.counters[level];
+        }
+
+        function logx(level, args)
+        {
+            if (typeof args[0] === 'string') {
+                args.unshift({});
+            }
+            args[0].level = level;
+            log.apply(this, args);
+        }
+
+        log.error = function ()
+        {
+            logx('error', Array.prototype.slice.call(arguments));
+        };
+        log.info = function ()
+        {
+            logx('info', Array.prototype.slice.call(arguments));
+        };
+        log.warn = function ()
+        {
+            logx('warn', Array.prototype.slice.call(arguments));
+        };
+        log.count = 0;
+        log.counters = {error: 0, warn: 0, info: 0, log: 0};
+        log.indentSize = 2;
+        return log;
+    })() ||
+    //&lt;/debug>
+    (function ()
+    {
+        let nullLog = function ()
+        {
+        };
+        nullLog.info = nullLog.warn = nullLog.error = TopJs.emptyFn;
+        return nullLog;
+    }())
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+    </div>
+</div>
+
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/tether.min.js" crossorigin="anonymous"></script>
+
+<script src="../js/prettify/prettify.js"></script>
+<script src="../js/prettify/lang-css.js"></script>
+<script>prettyPrint();</script>
+
+<script src="../js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../js/linenumber.js"></script>
+<script src="../js/maodian.js"></script>
+
+<script src="../js/extra.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

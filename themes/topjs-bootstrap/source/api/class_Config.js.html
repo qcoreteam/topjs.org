@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>class/Config.js - Documentation</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/prettify.css">
+    <link type="text/css" rel="stylesheet" href="../css/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="../css/extra.css">
+    <link type="text/css" rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<header class="navbar navbar-fixed-top fixed-header fixed-header-active header hidden-sm-down">
+    <nav class="navbar navbar-light">
+
+        <div class="">
+            <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <a href="/"><img class="navbar-brand logo" src="../images/logo-green.png"></a>
+
+            <div class="collapse navbar-toggleable-md float-lg-right" id="navbarResponsive">
+                <ul class="nav navbar-nav float-lg-right">
+                    <li class="nav-item"><a class="nav-link" href="/" >首页</a></li><li class="nav-item"><a class="nav-link" href="/docs/v0.0.1/" >手册</a></li><li class="nav-item"><a class="nav-link" href="/api/" >API文档</a></li><li class="nav-item"><a class="nav-link" href="/categories/blog/" >博客</a></li><li class="nav-item"><a class="nav-link" href="/categories/devel/" >开发日志</a></li><li class="nav-item"><a class="nav-link" href="/about/" >关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hidden-md-up sm-header">
+    <div class="toggler" id="slideClose"></div>
+    <img src="../images/logo-green.png">
+</div>
+<div class="api-container clearfix">
+    <nav>
+        <div class="category hidden-md-up">
+            <a href="/">首页</a>
+            <a href="/docs/v0.0.1/">手册</a>
+            <a href="/api/">API文档</a>
+            <a href="/categories/blog">博客</a>
+            <a href="/categories/devel">开发日志</a>
+            <a href="/about">关于我们</a>
+        </div>
+        <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul class = "entry-type-namespaces"><li><a href="TopJs.html">TopJs</a><ul class='members'><li data-type='member' class='entry-type-class'><a href="TopJs.Array.html">Array</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Assert.html">Assert</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Base.html">Base</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Class.html">Class</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.ClassManager.html">ClassManager</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Config.html">Config</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Date.html">Date</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Error.html">Error</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Function.html">Function</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Loader.html">Loader</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Number.html">Number</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Object.html">Object</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.String.html">String</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Version.html">Version</a></li></ul></li><li><a href="TopJs.kernel.html">TopJs.kernel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callParent">callParent</a></li><li><a href="global.html#callSuper">callSuper</a></li><li><a href="global.html#clearPropertiesOnDestroy">clearPropertiesOnDestroy</a></li><li><a href="global.html#destroyed">destroyed</a></li><li><a href="global.html#isConfiguring">isConfiguring</a></li><li><a href="global.html#isFirstInstance">isFirstInstance</a></li><li><a href="global.html#isInstance">isInstance</a></li><li><a href="global.html#statics">statics</a></li></ul>
+    </nav>
+    <div id="main">
+        
+        <h1 class="page-title">class/Config.js</h1>
+        
+
+        
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * TopJs Framework (http://www.topjs.org/)
+ *
+ * @link      http://github.com/qcoreteam/topjs for the canonical source repository
+ * @copyright Copyright (c) 2016-2017 QCoreTeam (http://www.qcoreteam.org)
+ * @license   http://www.topjs.org/license/new-bsd New BSD License
+ */
+/**
+ * @class TopJs.Config
+ * @classdesc
+ *
+ * This class manage a config property. Instance of this type are created and cached
+ * as classes declare their config properties. One instance of this class is created per
+ * config property name.
+ *
+ * ```javascript
+ * TopJs.define('MyClass', {
+ *   config: {
+ *      name: 'softboy'
+ *   }
+ * })
+ * ```
+ *
+ * This uses the cached `TopJs.Config` instance for the "name" property.
+ *
+ * When config properties apply options to config properties a prototype chained object is
+ * create from the cached instance. For example:
+ *
+ * ```javascript
+ * TopJs.define({
+ *   config: {
+ *      data: {
+ *         name: 42,
+ *         lazy: true
+ *      }
+ *   }
+ * });
+ * ```
+ * This create a prototype chian to the cached "data" instance of `TopJs.Config` and applies
+ * The `lazy` option to that new instance. This chained instance is then kept by the
+ * `TopJs.Configurator` for that class.
+ * @constructor
+ */
+TopJs.Config = function (name)
+{
+    let capitalizedName = name.charAt(0).toUpperCase() + name.substr(1);
+    this.name = name;
+    this.names = {
+        internal: '_' + name,
+        initializing: 'is' + capitalizedName + 'Initializing',
+        apply: 'apply' + capitalizedName,
+        update: 'update' + capitalizedName,
+        get: 'get' + capitalizedName,
+        set: 'set' + capitalizedName,
+        initGet: 'initGet' + capitalizedName
+    };
+};
+
+TopJs.apply(TopJs.Config.prototype, /** @lends TopJs.Config.prototype */{
+    /**
+     * @property {String} name
+     * The name of this config property.
+     * @readonly
+     */
+    name: null,
+
+    /**
+     * @property {Object} names
+     * This object holds the cached names used to lookup properties or methods for this
+     * config property. The properties of this object are explained in the context of an
+     * example property named "foo".
+     *
+     * @property {String} names.internal The default backing property ("_foo").
+     * @property {String} names.initializing The property that is `true` when the config
+     * is being initialized ("isFooInitializing").
+     * @property {String} names.apply The name of the applier method ("applyFoo").
+     * @property {String} names.update  The name of the updater method ("updateFoo").
+     * @property {String} names.get The name of the getter method ("getFoo").
+     * @property {String} names.set The name of the setter method ("setFoo").
+     * @property {String} names.initGet The name of the initializing getter ("initGetFoo").
+     * @property {String} names.changeEvent The name of the change event ("foochange").
+     * @readonly
+     */
+    names: null,
+
+    /**
+     * This allows folks to prototype chain on top of these objects and yet still cache
+     * generated methods at the bottom of the chain.
+     * @private
+     */
+    root: null,
+
+    /**
+     * @property {Function} self The TopJs.Config class Type
+     */
+    self: TopJs.Config,
+
+    /**
+     * @property {Boolean} isConfig for quick type identify
+     * @private
+     */
+    isConfig: true,
+});
+
+TopJs.apply(TopJs.Config, /** @lends TopJs.Config */{
+    /**
+     * @private
+     */
+    map: {},
+
+    /**
+     * @property {Boolean} [cached=false]
+     * When set as `true` the config property will be stored on the class prototype once
+     * the first instance has had a chance to process the default value.
+     * @private
+     */
+    cached: false,
+
+    /**
+     * @property {Boolean} [lazy=false]
+     * When set as `true` the config property will not be immediately initialized during
+     * the `initConfig` call.
+     * @private
+     */
+    lazy: false,
+    
+    /**
+     * Get the config object by name, if not exist, create a new one.
+     *
+     * @param {String} name
+     */
+    get (name)
+    {
+        let map = TopJs.Config.map;
+        return map[name] || (map[name] = new TopJs.Config());
+    },
+
+    getGetter ()
+    {
+        return this.getter || (this.root.getter = this.makeGetter());
+    },
+
+    getInitGetter ()
+    {
+        return this.initGetter || (this.root.initGetter = this.makeInitGetter())
+    },
+
+    /**
+     * Returns the name of the property that stores this config on the given instance or
+     * class prototype.
+     * @param {Object} target
+     * @return {String}
+     */
+    getInternalName (target)
+    {
+        return target.$_config_prefixed_$ ? this.name.internal : this.name;
+    },
+
+    mergeNew (newValue, oldValue, target, mixinClass)
+    {
+        let ret;
+        if (!oldValue) {
+            ret = newValue;
+        } else if (!newValue) {
+            ret = oldValue;
+        } else {
+            ret = TopJs.Object.chain(oldValue);
+            for (let key in newValue) {
+                if (!mixinClass || !(key in ret)) {
+                    ret[key] = newValue[key];
+                }
+            }
+        }
+        return ret;
+    },
+
+    /**
+     * Merges the `newValue` and the `oldValue` assuming that these are basically objects
+     * the represent sets. For example something like:
+     *
+     *      {
+     *          foo: true,
+     *          bar: true
+     *      }
+     *
+     * The merge process converts arrays like the following into the above:
+     *
+     *      [ 'foo', 'bar' ]
+     *
+     * @param {String|String[]|Object} newValue
+     * @param {Object} oldValue
+     * @param {Boolean} [preserveExisting=false]
+     * @return {Object}
+     * @private
+     */
+    mergeSets (newValue, oldValue, preserveExisting = false) 
+    {
+        let ret = oldValue ? TopJs.Object.chain(oldValue) : {};
+        let val;
+        if (newValue instanceof Array) {
+            for (let i = newValue.length; i--; ) {
+                val = newValue[i];
+                if (!preserveExisting || !(val in ret)) {
+                    ret[val] = true;
+                }
+            }
+        } else if (newValue) {
+            if (newValue.constructor === Object) {
+                for (let i in newValue) {
+                    val = newValue[i];
+                    if (!preserveExisting || !(i in ret)) {
+                        ret[i] = val;
+                    }
+                }
+            } else if (!preserveExisting || !(newValue in ret)) {
+                ret[newValue] = true;
+            }
+        }
+        return ret;
+    },
+    
+    makeGetter () 
+    {
+        let name = this.name;
+        let prefixedName = this.names.internal;
+        return function () 
+        {
+            let internalName = this.$_config_prefixed_$ ? prefixedName : name;
+        };
+    },
+    
+    makeInitGetter ()
+    {
+        let name = this.name;
+        let names = this.names;
+        let setName = names.set;
+        let getName = names.get;
+        let initialzingName = names.initializing;
+        return function ()
+        {
+            this[initialzingName] = true;
+            // Remove the initGetter from the instance now that the value has been set.
+            delete this[getName];
+            this[setName](this.config[name]);
+            delete this[initialzingName];
+            return this[getName].apply(this, arguments);
+        };
+    },
+    
+    makeSetter ()
+    {
+        let name = this.name;
+        let names = this.names;
+        let prefixedName = names.internal;
+        let getName = names.get;
+        let applyName = names.apply;
+        let updateName = names.update;
+        // http://jsperf.com/method-call-apply-or-direct
+        // http://jsperf.com/method-detect-invoke
+        let setter = function (value) 
+        {
+            let internalName = this.$_config_prefixed_$ ? prefixedName : name;
+            let oldValue = this[internalName];
+            // Remove the initGetter from the instance now that the value has been set.
+            delete this[getName];
+            if (!this[applyName] || undefined != (value = this[applyName](value, oldValue))) {
+                // The old value might have been changed at this point
+                // (after the apply call chain) so it should be read again
+                if (value !== (oldValue = this[internalName])) {
+                    this[internalName] = value;
+                    if (this[updateName]) {
+                        this[updateName](value, oldValue);
+                    }
+                }
+            }
+            return this;
+        };
+        setter.$_is_default_$ = true;
+        return setter;
+    }
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+    </div>
+</div>
+
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/tether.min.js" crossorigin="anonymous"></script>
+
+<script src="../js/prettify/prettify.js"></script>
+<script src="../js/prettify/lang-css.js"></script>
+<script>prettyPrint();</script>
+
+<script src="../js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../js/linenumber.js"></script>
+<script src="../js/maodian.js"></script>
+
+<script src="../js/extra.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

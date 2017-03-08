@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Error - Documentation</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/prettify.css">
+    <link type="text/css" rel="stylesheet" href="../css/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="../css/extra.css">
+    <link type="text/css" rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<header class="navbar navbar-fixed-top fixed-header fixed-header-active header hidden-sm-down">
+    <nav class="navbar navbar-light">
+
+        <div class="">
+            <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <a href="/"><img class="navbar-brand logo" src="../images/logo-green.png"></a>
+
+            <div class="collapse navbar-toggleable-md float-lg-right" id="navbarResponsive">
+                <ul class="nav navbar-nav float-lg-right">
+                    <li class="nav-item"><a class="nav-link" href="/" >首页</a></li><li class="nav-item"><a class="nav-link" href="/docs/v0.0.1/" >手册</a></li><li class="nav-item"><a class="nav-link" href="/api/" >API文档</a></li><li class="nav-item"><a class="nav-link" href="/categories/blog/" >博客</a></li><li class="nav-item"><a class="nav-link" href="/categories/devel/" >开发日志</a></li><li class="nav-item"><a class="nav-link" href="/about/" >关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hidden-md-up sm-header">
+    <div class="toggler" id="slideClose"></div>
+    <img src="../images/logo-green.png">
+</div>
+<div class="api-container clearfix">
+    <nav>
+        <div class="category hidden-md-up">
+            <a href="/">首页</a>
+            <a href="/docs/v0.0.1/">手册</a>
+            <a href="/api/">API文档</a>
+            <a href="/categories/blog">博客</a>
+            <a href="/categories/devel">开发日志</a>
+            <a href="/about">关于我们</a>
+        </div>
+        <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul class = "entry-type-namespaces"><li><a href="TopJs.html">TopJs</a><ul class='members'><li data-type='member' class='entry-type-class'><a href="TopJs.Array.html">Array</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Assert.html">Assert</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Base.html">Base</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Class.html">Class</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.ClassManager.html">ClassManager</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Config.html">Config</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Date.html">Date</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Error.html">Error</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Function.html">Function</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Loader.html">Loader</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Number.html">Number</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Object.html">Object</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.String.html">String</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Version.html">Version</a></li></ul></li><li><a href="TopJs.kernel.html">TopJs.kernel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callParent">callParent</a></li><li><a href="global.html#callSuper">callSuper</a></li><li><a href="global.html#clearPropertiesOnDestroy">clearPropertiesOnDestroy</a></li><li><a href="global.html#destroyed">destroyed</a></li><li><a href="global.html#isConfiguring">isConfiguring</a></li><li><a href="global.html#isFirstInstance">isFirstInstance</a></li><li><a href="global.html#isInstance">isInstance</a></li><li><a href="global.html#statics">statics</a></li></ul>
+    </nav>
+    <div id="main">
+        
+        <h1 class="page-title">Error</h1>
+        
+
+        
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="TopJs.html">TopJs</a>.</span>
+        
+        Error
+        </h2>
+        
+            <div class="class-description"><p>定义一个原生的javascript<code>Error</code>对象的帮助类，添加一些在实现应用程序是经常使用的帮助方法
+当您在类系统中使用<a href="TopJs.html#.raise">TopJs.raise</a>方法抛出<code>TopJs.Error</code>异常的时候，错误类将自动的添加
+抛出异常时候的类名字和方法名字。我们包含一些逻辑，如果<code>TopJs.Error</code>携带额外的信息，可以自动的将<code>TopJs.Error</code>
+相关信息向<code>console</code>进行输出。在所有的情况下，在处理完相关逻辑后，系统将抛出<code>error</code>结束程序的运行。</p>
+<p><code>TopJs.Error</code>同时提供一个全局的<code>error</code>, 您可以重写<a href="TopJs.Error.html#.handle">TopJs.Error.handle</a>在应用程序范围中单点处理
+异常。在真实的程序中，一般会添加一些额外的逻辑，让错误记录更有实际意义。</p>
+<p>简单使用</p>
+<pre class="prettyprint source lang-javascript"><code>TopJs.raise(&quot;something bad happend!&quot;);</code></pre><p>如果我们在普通的<code>javascript</code>代码中<code>raise error</code>, 错误将在控制台进行输出，将<code>error message</code>显示出来
+更多的情况我们是在<code>TopJs Class</code>中进行<code>raise</code>，系统将自动添加很多有用的信息，同时我们也可以手动添加一些错误的
+元信息。
+例如</p>
+<pre class="prettyprint source lang-javascript"><code>TopJs.define(&quot;TopJs.SomeCls&quot;, {
+     doSomething: function(option){
+         if (someCondition === false) {
+            TopJs.raise({
+               msg: &quot;错误的操作!&quot;,
+               option: option, // 任意的常量对象
+               &quot;error code&quot;: 100
+            });
+         }
+     }
+});</code></pre><p>控制台将输出如下信息：</p>
+<pre class="prettyprint source"><code>        option: Object { foo: &quot;bar&quot;}
+            oo: &quot;bar&quot;
+    error code: 100
+           msg: &quot;错误的操作!&quot;
+   sourceClass: &quot;TopJs.SomeCls&quot;
+  sourceMethod: &quot;doSomething&quot;
+  uncaught exception: &quot;错误的操作!&quot;</code></pre><p>正如您看到的<code>，TopJs.Error</code>会在控制台输出很多有用的信息</p>
+<p>我们还可以处理全局所有的<code>error</code>，如下是一个例子：</p>
+<pre class="prettyprint source lang-javascript"><code>TopJs.Error.handle = function(err) {
+    if (err.someProperty == &quot;NotReallyAnError&quot;) {
+        // maybe log something to the application here if applicable
+        return true;
+    }
+}</code></pre></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name method-header" id="Error" method-name="Error"><span class="type-signature"></span>new TopJs.Error<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Error.js.html">lang/Error.js</a>, <a href="lang_Error.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".ignore"><span class="type-signature">(static) </span>ignore<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Error.js.html">lang/Error.js</a>, <a href="lang_Error.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ignore</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<div class="description">
+    <p>全局标志变量，当设置为<code>true</code>禁止全局错误报告。使用的时候要特别小心，当我们禁止<code>TopJs.Error</code>处理
+可能我们的程序会被原生的异常终止，更好的选择是重写TopJs.Erorr.handle方法进行全局的错误
+处理。</p>
+<p>简单的例子：</p>
+<pre class="prettyprint source lang-javascript"><code>TopJs.Error.ignore = true;</code></pre>
+</div>
+
+
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name method-header" id=".handle" method-name="handle"><span class="type-signature">(static) </span>handle<span class="signature">(error)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Error.js.html">lang/Error.js</a>, <a href="lang_Error.js.html#line152">line 152</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>全局处理<code>TopJs errors</code>模板函数，您可以重写这个函数，加上一些自定义的错误处理逻辑
+这跟函数返回<code>true</code>,将不会抛出异常。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>错误字符串，或者包含自定义信息的错误对象，自定义对象必须含有一个<code>msg</code>字段
+自定义信息将在控制台输出</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    </div>
+</div>
+
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/tether.min.js" crossorigin="anonymous"></script>
+
+<script src="../js/prettify/prettify.js"></script>
+<script src="../js/prettify/lang-css.js"></script>
+<script>prettyPrint();</script>
+
+<script src="../js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../js/linenumber.js"></script>
+<script src="../js/maodian.js"></script>
+
+<script src="../js/extra.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

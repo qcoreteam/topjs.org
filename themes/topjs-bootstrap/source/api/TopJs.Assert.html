@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Assert - Documentation</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/prettify.css">
+    <link type="text/css" rel="stylesheet" href="../css/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="../css/extra.css">
+    <link type="text/css" rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<header class="navbar navbar-fixed-top fixed-header fixed-header-active header hidden-sm-down">
+    <nav class="navbar navbar-light">
+
+        <div class="">
+            <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <a href="/"><img class="navbar-brand logo" src="../images/logo-green.png"></a>
+
+            <div class="collapse navbar-toggleable-md float-lg-right" id="navbarResponsive">
+                <ul class="nav navbar-nav float-lg-right">
+                    <li class="nav-item"><a class="nav-link" href="/" >首页</a></li><li class="nav-item"><a class="nav-link" href="/docs/v0.0.1/" >手册</a></li><li class="nav-item"><a class="nav-link" href="/api/" >API文档</a></li><li class="nav-item"><a class="nav-link" href="/categories/blog/" >博客</a></li><li class="nav-item"><a class="nav-link" href="/categories/devel/" >开发日志</a></li><li class="nav-item"><a class="nav-link" href="/about/" >关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hidden-md-up sm-header">
+    <div class="toggler" id="slideClose"></div>
+    <img src="../images/logo-green.png">
+</div>
+<div class="api-container clearfix">
+    <nav>
+        <div class="category hidden-md-up">
+            <a href="/">首页</a>
+            <a href="/docs/v0.0.1/">手册</a>
+            <a href="/api/">API文档</a>
+            <a href="/categories/blog">博客</a>
+            <a href="/categories/devel">开发日志</a>
+            <a href="/about">关于我们</a>
+        </div>
+        <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul class = "entry-type-namespaces"><li><a href="TopJs.html">TopJs</a><ul class='members'><li data-type='member' class='entry-type-class'><a href="TopJs.Array.html">Array</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Assert.html">Assert</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Base.html">Base</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Class.html">Class</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.ClassManager.html">ClassManager</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Config.html">Config</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Date.html">Date</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Error.html">Error</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Function.html">Function</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Loader.html">Loader</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Number.html">Number</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Object.html">Object</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.String.html">String</a></li><li data-type='member' class='entry-type-class'><a href="TopJs.Version.html">Version</a></li></ul></li><li><a href="TopJs.kernel.html">TopJs.kernel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callParent">callParent</a></li><li><a href="global.html#callSuper">callSuper</a></li><li><a href="global.html#clearPropertiesOnDestroy">clearPropertiesOnDestroy</a></li><li><a href="global.html#destroyed">destroyed</a></li><li><a href="global.html#isConfiguring">isConfiguring</a></li><li><a href="global.html#isFirstInstance">isFirstInstance</a></li><li><a href="global.html#isInstance">isInstance</a></li><li><a href="global.html#statics">statics</a></li></ul>
+    </nav>
+    <div id="main">
+        
+        <h1 class="page-title">Assert</h1>
+        
+
+        
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="TopJs.html">TopJs</a>.</span>
+        
+        Assert
+        </h2>
+        
+            <div class="class-description"><p>这个类提供一个有用的诊断信息，经常用在<code>debug hooks</code>区域</p>
+<pre class="prettyprint source lang-javascript"><code>TopJs.define(&quot;Foo.bar.Class&quot;, {
+   debugHooks: {
+      method: function (a) {
+         TopJs.Assert.truthy(a, &quot;Expected &quot;a&quot; to be truthy&quot;);
+      },
+      foo: function (object) {
+         TopJs.Assert.isFunctionProp(object, &quot;doSomething&quot;);
+      }
+    }
+});</code></pre><p><strong>注意:</strong> 这个类里面的方法在打包的时候需要移除，所以请在<code>debug comment</code>区域使用或者在
+<code>debughooks</code>里面使用</p>
+<p>如下从<code>TopJs</code>探测得到的方法被自动包装，加入<code>assert</code>相关的语句</p>
+<ul>
+<li><code>isEmpty</code></li>
+<li><code>isArray</code></li>
+<li><code>isDate</code></li>
+<li><code>isObject</code></li>
+<li><code>isSimpleObject</code></li>
+<li><code>isPrimitive</code></li>
+<li><code>isFunction</code></li>
+<li><code>isNumber</code></li>
+<li><code>isNumeric</code></li>
+<li><code>isString</code></li>
+<li><code>isBoolean</code></li>
+<li><code>isDefined</code></li>
+<li><code>isIterable</code></li>
+</ul>
+<p>以上方法都有一个加了<code>Prop</code>后缀的方法，方便检测对象上的属性
+例如：</p>
+<pre class="prettyprint source lang-javascript"><code>TopJs.Assert.isFunction(object.foo);
+TopJs.Assert.isFunctionProp(object, 'foo');</code></pre><p>上面方法列表同样有否定断言方法</p>
+<ul>
+<li><code>isNotEmpty</code></li>
+<li><code>isNotArray</code></li>
+<li><code>isNotDate</code></li>
+<li><code>isNotObject</code></li>
+<li><code>isNotSimpleObject</code></li>
+<li><code>isNotPrimitive</code></li>
+<li><code>isNotFunction</code></li>
+<li><code>isNotNumber</code></li>
+<li><code>isNotNumeric</code></li>
+<li><code>isNotString</code></li>
+<li><code>isNotBoolean</code></li>
+<li><code>isNotDefined</code></li>
+<li><code>isNotIterable</code></li>
+</ul></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name method-header" id="Assert" method-name="Assert"><span class="type-signature"></span>new TopJs.Assert<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Assert.js.html">lang/Assert.js</a>, <a href="lang_Assert.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name method-header" id=".falsey" method-name="falsey"><span class="type-signature">(static) </span>falsey<span class="signature">(b, msg)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Assert.js.html">lang/Assert.js</a>, <a href="lang_Assert.js.html#line77">line 77</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>检查第一个参数是否<code>falsey</code>，如果不是则抛出<code>Error</code></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>需要检查的对象</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>抛出异常的值</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name method-header" id=".falseyProp" method-name="falseyProp"><span class="type-signature">(static) </span>falseyProp<span class="signature">(object, property)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Assert.js.html">lang/Assert.js</a>, <a href="lang_Assert.js.html#line90">line 90</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>检查第一个参数的属性是否<code>falsey</code>，如果不是则抛出<code>Error</code></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>等待检查的对象</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>property</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>需要检查的属性名称</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name method-header" id=".truthy" method-name="truthy"><span class="type-signature">(static) </span>truthy<span class="signature">(b, msg)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Assert.js.html">lang/Assert.js</a>, <a href="lang_Assert.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>判断第一个参数是否为<code>truthy</code>值，如果不是抛出<code>Error</code></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>需要检查的对象</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>抛出异常的值</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name method-header" id=".truthyProp" method-name="truthyProp"><span class="type-signature">(static) </span>truthyProp<span class="signature">(object, property)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lang_Assert.js.html">lang/Assert.js</a>, <a href="lang_Assert.js.html#line121">line 121</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>检查第一个参数的属性是否<code>truthy</code>，如果不是则抛出<code>Error</code></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>等待检查的对象</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>property</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>需要检查的属性名称</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    </div>
+</div>
+
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/tether.min.js" crossorigin="anonymous"></script>
+
+<script src="../js/prettify/prettify.js"></script>
+<script src="../js/prettify/lang-css.js"></script>
+<script>prettyPrint();</script>
+
+<script src="../js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../js/linenumber.js"></script>
+<script src="../js/maodian.js"></script>
+
+<script src="../js/extra.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

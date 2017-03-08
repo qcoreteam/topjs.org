@@ -21,9 +21,8 @@ function init() {
 
 function generateClassMethonPara() {
     $list = '<ul class="members" style="display: block;">';
-    $.each($('section h4.name'), function (i,n) {
-        text = $(n).text().split(' ')[1].split('(')[0];
-        $list += '<li data-type="member" class="entry-type-class"><a href="#' + $(n).attr('id') + '" class="current">' + text + '</a></li>'
+    $.each($('section .method-header'), function (i,n) {
+        $list += '<li data-type="member" class="entry-type-class"><a href="#' + $(n).attr('id') + '" class="current">' + $(n).attr('method-name') + '</a></li>'
     });
 
     $(pageSelector).after($list);
@@ -51,7 +50,7 @@ $('#slideClose').click(function (e) {
 $('nav').click(function (e) {
     e.stopPropagation();
 });
-$(document).bind('touchend', function (e) {
+$('.api-container *').bind('touchend click', function (e) {
     var windowWidth = $(window).width();
     if (windowWidth > 768) {
         return;
@@ -61,6 +60,9 @@ $(document).bind('touchend', function (e) {
         "left": -(width + 2),
         "opacity": 0
     });
+});
+$('.api-container *').bind('click touchend', function (e) {
+    $('.collapse').collapse('hide');
 });
 $(document).click(function () {
     var windowWidth = $(window).width();
