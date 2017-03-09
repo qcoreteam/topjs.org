@@ -50,7 +50,7 @@ $('#slideClose').click(function (e) {
 $('nav').click(function (e) {
     e.stopPropagation();
 });
-$('.api-container *').bind('touchend click', function (e) {
+$('#main *').bind('touchend click', function (e) {
     var windowWidth = $(window).width();
     if (windowWidth > 768) {
         return;
@@ -61,7 +61,7 @@ $('.api-container *').bind('touchend click', function (e) {
         "opacity": 0
     });
 });
-$('.api-container *').bind('click touchend', function (e) {
+$('#main *').bind('click touchend', function (e) {
     $('.collapse').collapse('hide');
 });
 $(document).click(function () {

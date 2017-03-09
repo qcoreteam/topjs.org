@@ -41,9 +41,7 @@ $('header button').click(function (e) {
 $('header').click(function (e) {
     e.stopPropagation();
 })
-$(document).click(function (e) {
-    // $('.collapse').collapse('hide');
-});
+
 $(document).bind('click touchend', function (e) {
     $('.collapse').collapse('hide');
 });
