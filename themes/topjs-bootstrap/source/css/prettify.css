@@ -77,3 +77,65 @@ ol.linenums {
   margin-top: 0;
   margin-bottom: 0;
 }
+.prettyprint {
+  font-size: 14px;
+  overflow: auto;
+}
+
+.prettyprint.source {
+  width: inherit;
+  line-height: 18px;
+  display: block;
+  background-color: #0d152a;
+  color: #aeaeae;
+}
+
+.prettyprint code {
+  line-height: 18px;
+  display: block;
+  background-color: #0d152a;
+  color: #4D4E53;
+}
+
+.prettyprint > code {
+  padding: 15px;
+}
+
+.prettyprint .linenums code {
+  padding: 0 15px
+}
+
+.prettyprint .linenums li:first-of-type code {
+  padding-top: 15px
+}
+
+.prettyprint code span.line {
+  display: inline-block
+}
+
+.prettyprint.linenums {
+  padding-left: 70px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prettyprint.linenums ol {
+  padding-left: 0
+}
+
+.prettyprint.linenums li {
+  border-left: 3px #34446B solid;
+}
+
+.prettyprint.linenums li.selected, .prettyprint.linenums li.selected * {
+  background-color: #34446B;
+}
+
+.prettyprint.linenums li * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}

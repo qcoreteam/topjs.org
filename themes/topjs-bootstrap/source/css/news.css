@@ -53,7 +53,7 @@ body{
 
 .news-content{
     float: left;
-    color: #7c7c7c;
+    color: #666;
 }
 .news-content p {
     margin-bottom: 10px;
@@ -64,7 +64,7 @@ body{
 }
 
 .news-content .title {
-    color: #8c8c8c;
+    color: #444;
     text-decoration: none;
 }
 .news-content h5

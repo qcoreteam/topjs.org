@@ -121,7 +121,10 @@ a:hover {
 }
 
 .header .navbar-nav a.nav-link {
-    color: #999;
+    color: #444;
+}
+.header .navbar-nav a.nav-link:hover {
+    color: #42c950;
 }
 
 .header {
@@ -232,6 +235,9 @@ a:hover {
     display: block;
 }
 .page-div a{
+    color: #444;
+}
+.page-div a:hover{
     color: #42c950;
 }
 /*评论*/

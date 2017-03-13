@@ -40,7 +40,9 @@ hexo.extend.helper.register("load_css_for_current_layout", function ()
     } else if ("devel" == this.page.category) {
         return this.css("css/news.css");
     } else if ("doc" == layout) {
-        return this.css(["css/docs.css", "css/BootSideMenu.css"]);
+        return this.css(["css/docs.css",
+            "css/BootSideMenu.css",
+            "css/prettify.css"]);
     } else {
         return this.css(["css/jsdoc.css", "css/extra.css"]);
     }
@@ -91,9 +93,11 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
     let layout = this.page.layout;
     if ("doc" == layout) {
         scripts = scripts.concat(
-            ["js/BootSideMenu.js", 
-            "js/maodian.js",
-            "js/docs.js"
+            ["js/BootSideMenu.js",
+                "js/maodian.js",
+                "js/prettify/prettify.js",
+                "js/prettify/lang-css.js",
+                "js/docs.js"
             ]
         );
     } else if ('api' == this.page.category) {

@@ -1,6 +1,10 @@
 /**
  * Created by liushuai on 2017/1/21.
  */
+
+$('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+prettyPrint();
+
 var width = $('#slide').width();
 $('#slide').css({
     "left": -(width + 2)

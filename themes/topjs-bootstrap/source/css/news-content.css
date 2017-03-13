@@ -13,18 +13,18 @@ body{
 }
 .news-container .title h4
 {
-    color: #8c8c8c;
+    color: #444;
     margin-bottom: 10px;
 }
 .news-container span {
-    color: #cccccc;
+    color: #666;
     display: block;
 }
 
 .news-container .content {
     background: white;
     padding: 0 4% 30px 4%;
-    color: #7c7c7c;
+    color: #666;
 }
 .news-container .detail
 {
