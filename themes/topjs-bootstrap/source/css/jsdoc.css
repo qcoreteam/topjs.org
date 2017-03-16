@@ -24,7 +24,7 @@ img {
 
 a,
 a:active {
-  color: #14AE65;
+  color: #42c950;
   text-decoration: none;
 }
 
@@ -37,7 +37,7 @@ article a {
 }
 
 article a:hover, article a:active {
-  border-bottom-color: #14AE65;
+  border-bottom-color: #42c950;
 }
 
 p, ul, ol, blockquote {
@@ -83,7 +83,7 @@ h4 {
 
 h4.name {
   color: #fff;
-  background: #14AE65;
+  background: #42c950;
   box-shadow: 0 .25em .5em #d3d3d3;
   border-top: 1px solid #d3d3d3;
   border-bottom: 1px solid #d3d3d3;
@@ -210,7 +210,7 @@ section {
 
 .api-container nav a:hover,
 .api-container nav a:active {
-  color: #14AE65;
+  color: #42c950;
 }
 
 .api-container nav > ul {
@@ -218,7 +218,7 @@ section {
 }
 
 .api-container nav > ul > li > a {
-  color: #14AE65;
+  color: #42c950;
 }
 
 .api-container nav ul ul {
@@ -248,7 +248,7 @@ section {
 .api-container nav > h2 > a {
    display: block;
    margin: 10px 0 -10px;
-   color: #14AE65 !important;
+   color: #42c950 !important;
 }
 
 footer {
@@ -402,7 +402,7 @@ footer {
 }
 
 span.param-type, .params td .param-type, .param-type dd {
-   color: #14AE65;
+   color: #42c950;
   font-family: Consolas, Monaco, 'Andale Mono', monospace
 }
 
