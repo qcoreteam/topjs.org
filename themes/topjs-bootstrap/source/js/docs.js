@@ -10,7 +10,7 @@ $('#slide').css({
     "left": -(width + 2)
 });
 
-$('#slideClose').click(function (e) {
+$(document).bind('touchend', function (e) {
     e.stopPropagation();
     var width = $('#slide').width();
     var left = $('#slide').css('left');
@@ -18,12 +18,12 @@ $('#slideClose').click(function (e) {
         $('#slide').animate({
             "left": -(width + 2),
             "opacity": 0
-        });
+        }, 500);
     } else {
         $('#slide').animate({
             "left": 0,
             "opacity": 1
-        });
+        }, 500);
     }
 });
 
