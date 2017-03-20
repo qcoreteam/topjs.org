@@ -70,9 +70,14 @@ theme: topjs-bootstrap
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+#deploy:
+#  type: git
+#  repo: git@git.oschina.net:q-topjs-site/q-topjs-site.git
+#  branch: master
+
 deploy:
   type: git
-  repo: git@git.oschina.net:q-topjs-site/q-topjs-site.git
+  repo: oschina-topjs-site:q-topjs-site/q-topjs-site.git
   branch: master
 
 github: qcoreteam/topjs

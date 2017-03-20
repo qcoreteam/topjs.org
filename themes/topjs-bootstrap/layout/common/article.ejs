@@ -14,10 +14,10 @@
                 <% if (page.prev || page.next){ %>
                 <div class="page-div">
                     <% if (page.prev){ %>
-                    <span class="pre"><a href="<%- config.root %><%- page.prev.path %>">上一篇:<%= page.prev.title %></a></span>
+                    <span class="pre"><a href="<%- config.root %><%- page.prev.path %>">上一篇 > <%= page.prev.title %></a></span>
                     <% } %>
                     <% if (page.next){ %>
-                    <span class="next"><a href="<%- config.root %><%- page.next.path %>">下一篇:<%= page.next.title %></a></span>
+                    <span class="next"><a href="<%- config.root %><%- page.next.path %>">下一篇 > <%= page.next.title %></a></span>
                     <% } %>
                 </div>
                 <% } %>
