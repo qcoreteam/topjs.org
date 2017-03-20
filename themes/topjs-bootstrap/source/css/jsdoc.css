@@ -562,8 +562,7 @@ span.param-type, .params td .param-type, .param-type dd {
     -webkit-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-    padding-top: 50px;
-    transition: left 0.2s;
+    padding-top: 80px;
   }
 
   .navicon-button {

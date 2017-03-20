@@ -15,35 +15,6 @@ nav .current {
     padding-left: 40px;
 }
 
-.sm-header {
-    background: white;
-    height: 40px;
-    position: fixed;
-    z-index: 9999999;
-    width: 100%;
-    -webkit-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-}
-
-.sm-header img {
-    display: block;
-    height: 20px;
-    margin: auto;
-    margin-top: 10px;
-}
-.toggler {
-    display: block;
-    background: transparent no-repeat center center;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    border-color: rgba(0,0,0,.1);
-    width: 2.5em;
-    height: 2em;
-    color: rgba(0,0,0,.7);
-    position: absolute;
-    left: 10px;
-    top: 4px;
-}
 
 code {
     overflow: auto;
