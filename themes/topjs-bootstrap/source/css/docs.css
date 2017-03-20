@@ -29,15 +29,12 @@
     text-decoration: none;
 }
 #slide {
-    padding-top: 45px;
+    padding-top: 80px;
     left:-1000px;
     overflow: scroll;
     width: 250px;
 }
-.sidebar-left .list-container
-{
-    margin-top:10px;
-}
+
 .sidebar-left a{
     text-decoration: none;
 }
@@ -139,7 +136,7 @@
 }
 
 .article-content {
-    padding: 50px 20px;
+    padding: 70px 20px;
 }
 
 .head-list ul {

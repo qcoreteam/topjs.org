@@ -35,12 +35,12 @@ $('#slideClose').click(function (e) {
     var width = $('.api-container nav').width();
     var left = $('.api-container nav').css('left');
     if (parseInt(left) === 0) {
-        $('.api-container nav').animate({
+        $('.api-container nav').css({
             "left": -(width + 2),
             "opacity": 0
         });
     } else {
-        $('.api-container nav').animate({
+        $('.api-container nav').css({
             "left": 0,
             "opacity": 1
         });
@@ -56,7 +56,7 @@ $('#main *').bind('touchend click', function (e) {
         return;
     }
     var width = $('.api-container nav').width();
-    $('.api-container nav').animate({
+    $('.api-container nav').css({
         "left": -(width + 2),
         "opacity": 0
     });
@@ -70,7 +70,7 @@ $(document).click(function () {
         return;
     }
     var width = $('.api-container nav').width();
-    $('.api-container nav').animate({
+    $('.api-container nav').css({
         "left": -(width + 2),
         "opacity": 0
     });
@@ -80,7 +80,7 @@ $(document).click(function () {
 $(window).resize(function (e) {
     var width = $(window).width();
     if ( width > 768) {
-        $('.api-container nav').animate({
+        $('.api-container nav').css({
             "opacity": 1
         });
     }
