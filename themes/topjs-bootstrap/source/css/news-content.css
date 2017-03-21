@@ -2,7 +2,10 @@ body{
     background: #f7f7f7;
 }
 
-
+.news-container p
+{
+    padding: 0px;
+}
 .news-container {
     padding: 100px 0 100px 0;
 }
@@ -16,10 +19,6 @@ body{
     color: #444;
     margin-bottom: 10px;
 }
-.news-container span {
-    color: #666;
-    display: block;
-}
 
 .news-container .content {
     background: white;
@@ -30,7 +29,6 @@ body{
 {
     line-height: 35px;
     font-size: 16px;
-    text-indent: 2em;
 }
 
 .news-container .content .detail {

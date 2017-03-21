@@ -28,13 +28,16 @@ hexo.extend.helper.register("load_css_for_current_layout", function ()
     if (_.startsWith(layout, "about")) {
         return this.css("css/about.css");
     } else if (layout == "post") {
-        return this.css("css/news-content.css");
+        return this.css(["css/news-content.css",
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-light.min.css"]);
     } else if (this.is_home() || "index" == layout) {
         return this.css("css/index.css");
     } else if ("blog" == this.page.category) {
-        return this.css("css/blog.css");
+        return this.css("css/blog.css",
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-light.min.css");
     } else if ("devel" == this.page.category) {
-        return this.css("css/news.css");
+        return this.css(["css/news.css",
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-light.min.css"]);
     } else if ("doc" == layout) {
         return this.css(["css/docs.css",
             "css/BootSideMenu.css",
@@ -84,23 +87,23 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
         "js/jquery.min.js",
         "js/tether.min.js",
         "js/bootstrap.min.js",
-        "js/common.js"
+        "js/common.js",
+        "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"
+    
     ];
     let layout = this.page.layout;
     if ("doc" == layout) {
         scripts = scripts.concat(
             ["js/BootSideMenu.js",
                 "js/maodian.js",
-                "js/docs.js",
-                "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"
+                "js/docs.js"
             ]
         );
     } else if ('api' == this.page.category) {
         scripts = scripts.concat([
             "js/linenumber.js",
             "js/maodian.js",
-            "js/extra.js",
-            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"
+            "js/extra.js"
         ]);
     }
     return this.js(scripts)

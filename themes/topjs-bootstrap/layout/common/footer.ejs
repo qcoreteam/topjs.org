@@ -37,8 +37,9 @@
 <%- load_scripts_for_layout() %>
 <% if ((page.layout=='post'||page.layout=='doc')&&theme.duoshuo.enable && page.comments){ %>
 <script type="text/javascript">
-    hljs.initHighlightingOnLoad();
+    hljs && hljs.initHighlightingOnLoad();
     var duoshuoQuery = {short_name:"<%= theme.duoshuo.short_name %>"};
+    $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
