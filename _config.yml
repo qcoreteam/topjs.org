@@ -77,7 +77,7 @@ theme: topjs-bootstrap
 
 deploy:
   type: git
-  repo: oschina-topjs-site:q-topjs-site/q-topjs-site.git
+  repo: github-topjs-site:qcoreteam-site-topjs/qcoreteam-site-topjs.github.io
   branch: master
 
 github: qcoreteam/topjs

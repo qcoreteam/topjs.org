@@ -14,13 +14,9 @@ hexo.extend.helper.register('header_menu', function (id)
     let result = '';
     let self = this;
     // TODO 暂时不处理语言
-    let curVersion = this.config.cur_version;
     _.each(menu, function (path, title)
     {
         let url = self.url_for(path);
-        if (path == "/docs/"){
-            url += curVersion+"/";
-        }
         result += '<li class="nav-item"><a class="nav-link" href="' + url + '" >'+title+'</a></li>';
     });
     return result;
@@ -42,7 +38,7 @@ hexo.extend.helper.register("load_css_for_current_layout", function ()
     } else if ("doc" == layout) {
         return this.css(["css/docs.css",
             "css/BootSideMenu.css",
-            "css/prettify.css"]);
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-light.min.css"]);
     } else {
         return this.css(["css/jsdoc.css", "css/extra.css"]);
     }
@@ -95,18 +91,16 @@ hexo.extend.helper.register("load_scripts_for_layout", function ()
         scripts = scripts.concat(
             ["js/BootSideMenu.js",
                 "js/maodian.js",
-                "js/prettify/prettify.js",
-                "js/prettify/lang-css.js",
-                "js/docs.js"
+                "js/docs.js",
+                "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"
             ]
         );
     } else if ('api' == this.page.category) {
         scripts = scripts.concat([
-            "js/prettify/prettify.js",
-            "js/prettify/lang-css.js",
             "js/linenumber.js",
             "js/maodian.js",
-            "js/extra.js"
+            "js/extra.js",
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"
         ]);
     }
     return this.js(scripts)
@@ -151,13 +145,9 @@ hexo.extend.helper.register("generate_docs_sidebar_site_menu_for_mobile", functi
     let html = '';
     let menu = this.site.data.menu;
     let self = this;
-    let curVersion = this.config.cur_version;
     _.each(menu, function (path, title)
     {
         let url = self.url_for(path);
-        if (path == "/docs/"){
-            url += curVersion+"/";
-        }
         html += '<a class="category" href="' + url + '" >'+title+'</a>';
     });
     return html;
@@ -165,7 +155,6 @@ hexo.extend.helper.register("generate_docs_sidebar_site_menu_for_mobile", functi
 
 hexo.extend.helper.register("generate_docs_sidebar_doc_list_for_mobile", function ()
 {
-    
     //根据版本号获取目录
     let curVersion = this.config.cur_version;
     let key = ("docs/"+curVersion+"/table").replace(/\./g, '');

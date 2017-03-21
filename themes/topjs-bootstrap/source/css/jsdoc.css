@@ -1,5 +1,3 @@
-@import url(Montserrat.css);
-
 * {
   box-sizing: border-box
 }
@@ -13,7 +11,7 @@ body {
   color: #000000;
   background-color: white;
   margin: 0 auto;
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: "Microsoft Yahei","微软雅黑", 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 16px;
   line-height: 160%;
 }
@@ -115,7 +113,7 @@ h6 {
 }
 
 tt, code, kbd, samp {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: "Microsoft Yahei","微软雅黑", Consolas, Monaco, 'Andale Mono', monospace;
   background: #f4f4f4;
   padding: 1px 5px;
 }
@@ -146,6 +144,7 @@ tt, code, kbd, samp {
 header {
   display: block
 }
+
 
 section {
   display: block;
@@ -190,7 +189,7 @@ section {
 }
 
 .api-container nav ul {
-  font-family: 'Titillium Web', Arial, Helvetica ,'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
+  font-family: "Microsoft Yahei","微软雅黑", 'Titillium Web', Arial, Helvetica ,'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
   font-size: 100%;
   line-height: 17px;
   padding: 0;
@@ -200,7 +199,7 @@ section {
 
 .api-container nav ul a,
 .api-container nav ul a:active {
-  font-family: 'Montserrat', 'Titillium Web', Arial, Helvetica ,'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
+  font-family: "Microsoft Yahei","微软雅黑", 'Montserrat', 'Titillium Web', Arial, Helvetica ,'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
   line-height: 18px;
   padding: 0;
   display: block;
@@ -289,11 +288,11 @@ footer {
 }
 
 .name, .signature {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace
+  font-family: "Microsoft Yahei","微软雅黑", Consolas, Monaco, 'Andale Mono', monospace
 }
 
 .signature {
-    color: #75dace;
+    color: #b0ff00;
 }
 
 .details {
@@ -364,7 +363,7 @@ footer {
 
 .params td, .params .name, .props .name, .name code {
    color: #4D4E53;
-   font-family: Consolas, Monaco, 'Andale Mono', monospace;
+   font-family: "Microsoft Yahei","微软雅黑", Consolas, Monaco, 'Andale Mono', monospace;
    font-size: 100%;
 }
 
@@ -402,7 +401,7 @@ footer {
 
 span.param-type, .params td .param-type, .param-type dd {
    color: #42c950;
-  font-family: Consolas, Monaco, 'Andale Mono', monospace
+  font-family: "Microsoft Yahei","微软雅黑", Consolas, Monaco, 'Andale Mono', monospace
 }
 
 .param-type dt, .param-type dd {

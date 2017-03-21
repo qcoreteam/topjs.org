@@ -24,6 +24,12 @@ code {
     width: 100%;
     overflow: auto;
 }
+@media (max-width: 768px) {
+    .table-wrap {
+        overflow: scroll;
+    }
+
+}
 .api-container .category a{
     display: block;
     text-decoration: none;

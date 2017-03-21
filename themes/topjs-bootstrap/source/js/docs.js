@@ -3,7 +3,7 @@
  */
 
 $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
-prettyPrint();
+
 
 var width = $('#slide').width();
 $('#slide').css({
