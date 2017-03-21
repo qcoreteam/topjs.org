@@ -25,6 +25,10 @@ body{
     padding: 0 4% 30px 4%;
     color: #666;
 }
+.news-container p
+{
+    /*text-indent: 2em;*/
+}
 .news-container .detail
 {
     line-height: 35px;
