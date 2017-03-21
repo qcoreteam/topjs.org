@@ -110,7 +110,41 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 news-list">
                     <h2 class="category-title"><img src="../images/book.svg"> 推荐阅读</h2>
-                    <span class="no-recommend">暂无推荐文章</span>
+                    <% let blogArticles = [];
+                    page.posts.each(function (post, i) {
+                        let categories = post.categories;
+                        let findResults = categories.find({name: "blog"});
+                        if (findResults.length > 0) {
+                            blogArticles.unshift(post);
+                        }
+                    });
+                    let blogFirstPost;
+                    if (blogArticles.length > 0) {
+                        blogFirstPost = blogArticles.pop();
+                    }
+                    %>
+                    <div class="img-news hidden-md-down hidden-sm-down">
+                        <% if (blogFirstPost) { %>
+                        <div>
+                            <!--<img src="../images/news-test.png">-->
+                        </div>
+                        <div class="title">
+                            <h2><a href="<%- url_for(blogFirstPost.path) %>"><%= blogFirstPost.title %></a></h2>
+                            <p><%- excerpt(blogFirstPost) %></p>
+                            <a href="<%- url_for(blogFirstPost.path) %>" class="more">阅读全文</a>
+                        </div>
+                        <% } %>
+                    </div>
+                    <ul class="list">
+                        <% if (blogFirstPost) { %>
+                        <li class="hidden-md-up hidden-sm-up clearfix"><a
+                                    href="<%- url_for(blogFirstPost.path) %>"><%= blogFirstPost.title %></a>
+                        </li>
+                        <% } %>
+                        <% blogArticles.forEach(function(post) { %>
+                        <li class="clearfix"><a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+                        <% }) %>
+                    </ul>
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-sm-12 news-list">
