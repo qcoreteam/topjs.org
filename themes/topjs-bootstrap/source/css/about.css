@@ -35,6 +35,10 @@ body {
     background: white;
     padding: 30px 0 30px 0;
 }
+.about-content hr
+{
+    width:96%;
+}
 
 .about-content h3 {
     padding-left: 15px;
@@ -42,7 +46,7 @@ body {
 }
 
 .about-content p {
-    margin: 35px 115px 60px 115px;
+    margin: 20px 30px 60px 30px;
     color: #666;
 }
 
